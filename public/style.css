@@ -1,0 +1,165 @@
+@font-face {
+    font-family: 'tonus';
+    src: url('../src/BebasNeue-Regular.ttf') format('truetype'),
+}
+
+body{
+    font-family: 'tonus', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #E9DBC5;
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+
+
+
+#loaderAnimation {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+}
+
+nav {
+    z-index: 100;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+
+}
+
+.hiddenOverlay {
+    opacity: 0;
+    display: none;
+    transition: all 0.5s ease;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.floating-image {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes rotateLeftRight {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(-5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+
+.rotate-image {
+    animation: rotateLeftRight 2s ease-in-out infinite;
+}
+
+
+@keyframes rotateLeftRightHover {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(-5deg);
+    }
+
+    75% {
+        transform: rotate(5deg);
+    }
+
+    100% {
+        transform: rotate(5deg);
+    }
+}
+
+
+.rotate-image-hover:hover {
+    animation: rotateLeftRightHover 1s ease-in-out;
+    cursor: pointer;
+    transform: rotate(5deg);
+    scale: 1.1;
+    transition: 0.5s ease-in-out;
+}
+
+#secondSection {
+    --bg-opacity: 1; /* CSS variable for background opacity */
+}
+
+#secondSection::before {
+    content: ""; /* Required for pseudo-elements */
+    position: absolute; /* Position it absolutely within the section */
+    top: 0; /* Position at the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Stretch to the right */
+    height: 100%; /* Cover the full height of the section */
+    background-image: url('/src/img/bg-pattern.png'); /* Your overlay image */
+    background-repeat: repeat-x; /* Repeat horizontally */
+    background-position: top; /* Position the image at the top */
+    margin-top: -90px;
+    z-index: 1; /* Set z-index so it's below content */
+    opacity: var(--bg-opacity); /* Set opacity using CSS variable */
+    transition: opacity 0.2s ease; /* Smooth transition for opacity changes */
+}
+
+#navigation::before {
+    content: ""; /* Required for pseudo-elements */
+    position: absolute; /* Position it absolutely within the section */
+    top: 0; /* Position at the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Stretch to the right */
+    height: 100%; /* Cover the full height of the section */
+    background-image: url('/src/img/bg-pattern.png'); /* Your overlay image */
+    background-repeat: repeat-x; /* Repeat horizontally */
+    background-position: top; /* Position the image at the top */
+    z-index: -1; /* Set z-index so it's below content */
+    opacity: var(--bg-opacity); /* Set opacity using CSS variable */
+}
+
+#mobileHero::before {
+    content: ""; /* Required for pseudo-elements */
+    position: absolute; /* Position it absolutely within the section */
+    top: 0; /* Position at the top */
+    left: 0; /* Align to the left */
+    right: 0; /* Stretch to the right */
+    height: 100%; /* Cover the full height of the section */
+    background-image: url('/src/img/pattern-mobile.png'); /* Your overlay image */
+    background-repeat: repeat-x; /* Repeat horizontally */
+    background-position: top; /* Position the image at the top */
+
+    z-index: -1; /* Set z-index so it's below content */
+    opacity: 0.4; /* Set opacity using CSS variable */
+
+}
+
+.dot {
+    margin-top: -30px;
+}
+
+.dot.active {
+    transform: scale(1.5);
+    background-color: #d1d1d1; /* Change color for the active dot */
+}
+
+
